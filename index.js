@@ -1,6 +1,6 @@
 const prompt = require("prompt-sync")({sigint:true});
 
-let qtdeNotas = +prompt("Digite a quantidade de notas que deseja inserir: \n");
+let qtdeNotas = +prompt("Digite a quantidade de notas que deseja inserir: ");
 console.log(qtdeNotas);
 function entradaDeNotas(qtde){
     let notas = [];
@@ -17,12 +17,17 @@ function entradaDeNotas(qtde){
 function somaValoresArrey(array){
     let soma = 0;
 
-    for(let i = 0; i < array.lenght; i++){
+    //o erro estava na escrita lenght
+    for(let i = 0; i < array.length; i++){
         soma += array[i];
     }
-
-    return soma;
+   
+    return calculaMedia(soma, array.length);
 }
 
+function calculaMedia(soma, qtde){
+    let media = soma / qtde;
+    return media;
+}
 
 console.log(`A média das notas inseridas é: ${entradaDeNotas(qtdeNotas)}`);
